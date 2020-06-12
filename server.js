@@ -19,7 +19,7 @@ server.post('/api/users', (req,res) => {
     res.status(201).json(userInfo);
 });
 
-server.get('/api/users/:id', (req,res) => {
+server.get('/api/users', (req,res) => {
     const {id} = req.params;
 
     const found= users.find(user => user.id === id)
@@ -31,7 +31,7 @@ server.get('/api/users/:id', (req,res) => {
     
 });
 
-server.get('/api/users/', (req,res) => {
+server.get('/api/users/:id', (req,res) => {
     
     res.status(200).json(users);
 });
@@ -63,8 +63,6 @@ server.patch("/api/users/:id",(req, res) => {
     }
 })
 
-const PORT = 5000;
 
-server.listen(PORT, () =>{
-    console.log (`listening on http://localhost:${PORT}`)
-})
+
+module.exports = server;
